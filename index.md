@@ -1,6 +1,6 @@
 ### 자료
-- [github]
-- [facebook ]
+- [github](https://github.com/psygrammer/dsur)
+- [facebook](https://www.facebook.com/notes/싸이그래머/심리통계-중급-using-r/375222685963562)
  
 
 ### 심리통계(기초,중급) Using R

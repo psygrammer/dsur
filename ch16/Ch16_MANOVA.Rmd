@@ -1,0 +1,129 @@
+---
+title: "Ch16_MANOVA_R"
+발표자 : 최 창 순
+---
+### 1. 다변량 분산분석(MANOVA)란?
+범주형 자료로 구성된 독립변수들이 연속형 자료로 구성된 두 개 이상의 종속변수 에 대해 갖는 차이를 검증하고자 할 때 사용하는 통계기법
+
+- 교수방법(질의식/토론식)에 따른 국어성적에 차이가 있는가? : T검정
+- 교수방법(질의식/토론식/강연식)에 따른 국어성적에 차이가 있는가? : ANOVA
+- 교수방법(질의식/토론식/강연식)에 따른 국어성적과 영어성적 차이가 있는가? : MANOVA
+
+### 2. 다변량 분산분석의 통계적 가설
+- ANOVA : 하나 또는 두개 이상의 독립변수에 대해 하나의 종속변수에 대한 모든 집단의 평균이 같다는 영가설을 검증
+- MANOVA : 여러 종속변수들의 선형 결합된 평균벡터가 모든 집단에서 같다는 영가설을 검증
+
+**평균벡터의 차이란?**
+: 집단 간 평균벡터가 다르다는 것은 여러 종속 측정치의 결합점수가 독립변수에 따라 차이가 있음을 말하는 것이며, 그 차이는  독립변수의 처치효과라고 해석한다.
+이것이 곧 독립변수의 주효화가 유의미 하다는 것을 말한다
+
+
+### 3. ANOVA와 MANOVA의 차이점
+1. MANOVA는 종속변수의 조합에 대한 효과의 동시검정을 중요시합니다.    
+즉 대부분의 종속변수들은 서로 상관관계가 있기 때문입니다. 
+따라서 MANOVA는 ANOVA와는 달리 집단간의 결합된 차이를 밝혀낼 수 있어 집단간의 차이를 밝히는데 사용가능한 정보를 보다 많이 사용할 수 있습니다
+
+2. MANOVA 설계의 특징은 종속변수가 벡터변수라는 점입니다
+
+3. ANOVA로 여러 개의 종속변수를 평가하려면, 여러번의 분석을 해야 하지만, MANOVA는 단 한번의 분석만을 하게 됩니다. 따라서 ANOVA로 분석하게 되면, 1종 오차의 확률이 커집니다.
+
+
+### 4. MANOVA를 수행하기 위한 가정
+1. 관측치가 서로 독립일 것.
+2. 각 집단의 분산과 공분산 행렬이 동일할 것.
+3. 모든 종속변수들은 다변량 정규분포를 따를 것.
+
+==============================================================================
+
+# R code 실습
+
+### 1. Enter data
+```{r}
+#setwd("~/R/psygrammer_statics/aall_data_files")
+#Initiate packages
+library(Hmisc)
+library(car)
+library(ggplot2)
+library(mvnormtest) ## mshaphiro.test() : Normality
+library(mvoutlier) ## aq.plot() : multivariate outliers
+library(pastecs) ## by(), stat.desc() : 
+library(reshape)
+library(WRS)
+library(MASS) ## lda()
+ocdData <- read.delim("OCD.dat", header = T)
+ocdData$Group <- factor(ocdData$Group, levels = c("CBT", "BT", "No Treatment Control"), labels = c("CBT", "BT", "NT"))
+str(ocdData)
+ocdData
+```
+
+### 2. Exploring the data
+```{r}
+## Data shape and Covariance
+
+ocdScatter <- ggplot(ocdData, aes(Actions, Thoughts))
+ocdScatter + geom_point() + geom_smooth(method = "lm")+ labs(x = "Number of Obsession-Related Behaviours", y = "Number of Obsession-Related Thoughts") + facet_wrap(~Group, ncol = 3)
+
+ocdMelt<-melt(ocdData, id = c("Group"), measured = c("Actions", "Thoughts"))
+names(ocdMelt)<-c("Group", "Outcome_Measure", "Frequency")
+
+
+ocdBar <- ggplot(ocdMelt, aes(Group, Frequency, fill = Outcome_Measure))
+ocdBar + stat_summary(fun.y = mean, geom = "bar", position = "dodge") + stat_summary(fun.data = mean_cl_boot, geom = "errorbar", position=position_dodge(width=0.90), width = 0.2) + labs(x = "Treatment Group", y = "Number of Thoughts/Actions", fill = "Outcome Measure") + scale_y_continuous(breaks = seq(0, 20, by = 2))
+
+
+ocdBoxplot <- ggplot(ocdMelt, aes(Group, Frequency, colour = Outcome_Measure))
+ocdBoxplot + geom_boxplot() + labs(x = "Treatment Group", y = "Number of Thoughts/Actions", colour = "Outcome Measure") + scale_y_continuous(breaks = seq(0, 20, by = 2))
+
+
+options(digits = 3)
+by(ocdData$Actions, ocdData$Group, stat.desc, basic = FALSE)
+by(ocdData$Thoughts, ocdData$Group, stat.desc, basic = FALSE)
+options(digits = 7)
+
+
+by(ocdData[, 2:3], ocdData$Group, cov)
+
+## Normality
+
+cbt<-t(ocdData[1:10, 2:3])
+bt<-t(ocdData[11:20, 2:3])
+nt<-t(ocdData[21:30, 2:3])
+
+mshapiro.test(cbt)
+mshapiro.test(bt)
+mshapiro.test(nt)
+
+aq.plot(ocdData[, 2:3])
+```
+
+
+### 3. Setting contrasts
+```{r}
+CBT_vs_NT<-c(1, 0, 0)
+BT_vs_NT <-c(0, 1, 0)
+contrasts(ocdData$Group)<-cbind(CBT_vs_NT, BT_vs_NT)
+
+#contrasts(ocdData$Group)<-contr.treatment(3, base = 3)
+```
+
+
+### 4. Main analysis
+```{r}
+outcome<-cbind(ocdData$Actions, ocdData$Thoughts)
+ocdModel<-manova(outcome ~ Group, data = ocdData)
+summary(ocdModel, intercept = TRUE)
+summary(ocdModel, intercept = TRUE, test = "Wilks")
+summary(ocdModel, intercept = TRUE, test = "Hotelling")
+summary(ocdModel, intercept = TRUE, test = "Roy")
+
+```
+
+
+### 5. Discriminant Analysis
+```{r}
+ocdDFA<-lda(Group ~ Actions + Thoughts, data = ocdData, na.action="na.omit")
+summary(ocdDFA)
+plot(ocdDFA)
+predict(ocdDFA)
+```
+

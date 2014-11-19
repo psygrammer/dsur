@@ -1486,6 +1486,13 @@ intervals(timeCubic)
 
 # 19.8. How to report a multilevel model
 
+* " The relationship between surgery and quality of life showed significant variance in intercepts across participants, SD = 5 .4 8 (95 0/0 CI: 3.31 , 9.07) , X2 (1) = 10τ 65 , P < .000 1. In addition, the slopes varied across participants, SD = 5 .4 2 (3.13 , 9.3 기, X2(2) = 38.87, P < .0001 , and the slopes and intercepts were negatively and significantly correlated, cor = -.95 (-.99 , -.60)."
+
+* "Quality of life before surgery significantly predicted quality of life after surgery, b = 0 .3 1, t(262) = 5.75 , P < .001 , surgery did not significantly predict quality of life ,
+b = -3.19 , t(262) =-1 .4 6, P = .15 , but the reason for surgery, b =-3.52, t(262) = -3.08 , p < .01 , and the interaction of the reason for surgery and surgery, b = 4.22, t(262) = 2.4 8, P < .05 , both did significantly predict quality of life. This interaction was broken down by conducting separate multilevel models on the ‘physical reason ’ and ‘ attractiveness reason ’. The models specified were the same as the main model but excluded the main effect and interaction term involving the reason for surgery. These analyses showed that for those operated on only to change their appearance , surgery almost significantly predicted quality of life after surgery, b = -4.31 , t(87) = -1. 89 , P = .06: quality of life was lower after surgery compared to the control group. However, for those who had surgery to solve a physical problem, surgery did not significantly Predict quality of life , b = 1. 20, t(166) = 0.57 , P = .57. The interaction effect, reflects the difference in slopes for surgery as a predictor of quality of life in those who had surgery for physical problems (slight positive slope) and those who had surgery purely for vanity (a negative slope)."
+
+
+
 <img src="figure/tbl_end.png" style="width: 80%;"/>
 
 

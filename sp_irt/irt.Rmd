@@ -21,6 +21,7 @@ str(lsat6)
 head(lsat6)
 summary(lsat6)
 
+
 lsat6[0:10,]
 ord <- order(colMeans(lsat6), decreasing=TRUE)
 ord

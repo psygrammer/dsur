@@ -1,0 +1,32 @@
+IRT(문항반응이론)
+========================================================
+
+발표자 : 이세리
+
+```{r}
+#install.packages("psych")
+#install.packages("ltm")
+```
+
+```{r}
+library(psych)
+library(ltm)
+```
+
+```{r}
+data(bock)
+lsat6[0:10,]
+ord <- order(colMeans(lsat6), decreasing=TRUE)
+ord
+lsat6.sorted <- lsat6[, ord]
+lsat6.sorted[0:10,]
+describe(lsat6.sorted)
+Tau <- round(-qnorm(colMeans(lsat6.sorted)),2)   #tau : estimates of threshold
+#round : rounds the values in its first argument to the specified number of decimal places
+#qnorm : quantile function with mean=0, sd=1
+Tau
+rasch(lsat6.sorted, constraint=cbind(ncol(lsat6.sorted)+1, 1.702))
+# constraint :  The first column represents the item (p+1 - 문항변별력 discrimination parameter)
+#       the second column the value at which the corresponding parameter should be fixed
+```
+

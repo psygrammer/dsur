@@ -9,10 +9,236 @@
 
 # 참고자료 1 : 알기쉬운 메타분석의 이해
 
------------------------------
+# 1. 메타분석의 배경
+
+## 메타분석이란?
 
 <img src="figure/ref1/fig1-1.jpg" style="width: 60%;" />
 
+
+## 체계적 연구결과분석과 메타분석
+
+<img src="figure/ref1/fig1-3.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/fig1-4.jpg" style="width: 60%;" />
+
+
+## 근거기반실천과 메타분석
+
+<img src="figure/ref1/fig1-6.jpg" style="width: 60%;" />
+
+
+## 메타분석의 단계
+
+<img src="figure/ref1/tbl1-3.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/fig1-7.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/fig1-8.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/tbl1-4.jpg" style="width: 60%;" />
+
+-----------------------------
+
+# 2. 메타분석에 대한 기본 이해
+
+* 주요 용어
+ - 효과 크기(effect size) : 표준화된 평균 차이(d), 상관관계(r), 승산비(OR) 등
+ - 통계적 유의성 또는 정밀성(precision) : 신뢰구간(confidence interval) 또는 유의확률(p-values)
+ - 가중치(weights)
+ - 평균 효과 크기(summary effect size)
+
+
+<img src="figure/ref1/fig2-1.jpg" style="width: 60%;" />
+
+
+-----------------------------
+
+# 3. 효과 크기
+
+ * 효과 크기의 평균과 통계적 유의미성 확인
+ * 효과 크기의 일관성 확인 및 동질성 검증
+ * 효과 크기의 이질성에 대한 설명
+
+## 효과 크기의 의미
+
+<img src="figure/ref1/tbl3-1.jpg" style="width: 60%;" />
+
+## 효과 크기 유형
+
+<img src="figure/ref1/tbl3-2.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/fig3-1.jpg" style="width: 60%;" />
+
+## 효과 크기 해석
+
+<img src="figure/ref1/fig3-2.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/fig3-3.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/fig3-4.jpg" style="width: 60%;" />
+
+
+## 효과 크기 계산 (연속형 데이터, "두 집단 사후검사 = 즉 통제집단후비교조사의 경우"" 예제)
+
+ * 연속형 데이터의 효과 크기 계산
+ * 두 집단(사후검사), 즉 통제집단후비교조사의 경우
+ * step 
+  - 1) 실험집단과 통제집단의 평균, 표준편차, 표본 크기
+  - 2) 표준화된 평균 차이(d)
+  - 3) 표준화된 평균 차이와 그 분산(V_d)
+  - 4) 교정된 표준화된 평균 차이(g)
+  - 5) 교정된 표준화된 평균 차이(g)와 그 분산(V_g)
+  - 6) 효과 크기의 표준오차와 신뢰구간, 유의확률
+  - 7) 가중치
+  - 8) 가중 효과 크기
+  - 9) 평균 효과 크기 
+  - 10) 평균 효과 크기와 표준오차
+  
+
+### 1) 실험집단과 통제집단의 평균, 표준편차, 표본 크기
+
+<img src="figure/ref1/tbl3-6-1.jpg" style="width: 60%;" />
+<img src="figure/ref1/tbl3-6-2.jpg" style="width: 60%;" />
+
+### 2) 표준화된 평균 차이(d) : Cohen's d (= Standardized mean difference)
+
+<img src="figure/ref1/eq3-1.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/tbl3-7.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/tbl3-8.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/tbl3-9-1.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/tbl3-9-2.jpg" style="width: 60%;" />
+
+
+### 3) 표준화된 평균 차이와 그 분산(V_d)
+
+<img src="figure/ref1/eq3-2.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/tbl3-10.jpg" style="width: 60%;" />
+
+
+### 4) 교정된 표준화된 평균 차이(g) : Hedges's d
+
+<img src="figure/ref1/eq3-3.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/tbl3-11.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/tbl3-12.jpg" style="width: 60%;" />
+
+
+### 5) 교정된 표준화된 평균 차이(g)와 그 분산(V_g)
+
+<img src="figure/ref1/tbl3-13.jpg" style="width: 60%;" />
+
+
+### 6) 효과 크기의 표준오차와 신뢰구간, 유의확률
+
+<img src="figure/ref1/eq3-4.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/tbl3-14.jpg" style="width: 60%;" />
+
+
+### 7) 가중치
+
+<img src="figure/ref1/eq3-5.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/tbl3-15.jpg" style="width: 60%;" />
+
+### 8) 가중 효과 크기
+
+<img src="figure/ref1/tbl3-16.jpg" style="width: 60%;" />
+
+### 9) 평균 효과 크기 
+
+<img src="figure/ref1/fig3-6.jpg" style="width: 60%;" />
+
+### 10) 평균 효과 크기와 표준오차
+
+<img src="figure/ref1/tbl3-17.jpg" style="width: 60%;" />
+
+
+### 효과 크기의 전환
+
+<img src="figure/ref1/fig3-19.jpg" style="width: 60%;" />
+
+
+-----------------------------
+
+# 4. 고정효과모형과 무선효과모형
+
+## 1. 고정효과모형과 무선효과모형의 의미
+
+<img src="figure/ref1/tbl4-1.jpg" style="width: 60%;" />
+
+* 고정효과모형
+ 
+<img src="figure/ref1/fig4-1.jpg" style="width: 60%;" /> 
+
+* 무선효과모형
+
+<img src="figure/ref1/fig4-1.jpg" style="width: 60%;" /> 
+
+
+## 2. 고정효과모형과 무선효과모형의 차이
+
+<img src="figure/ref1/tbl4-2.jpg" style="width: 60%;" />
+
+
+## 3. 고정효과모형과 무선효과모형의 적용 사례
+
+<img src="figure/ref1/eq4-1.jpg" style="width: 60%;" />
+
+<img src="figure/ref1/tbl4-3.jpg" style="width: 60%;" />
+
+
+### 고정효과모형과 무선효과모형의 특성 요약 비교
+
+<img src="figure/ref1/tbl4-4.jpg" style="width: 60%;" />
+
+
+
+-----------------------------
+
+# 9. 출간 오류 분석
+
+
+<img src="figure/ref1/tbl9-1.jpg" style="width: 60%;" />
+
+
+## 출간 오류의 의미 
+
+ * 출간된 연구의 결과가 모든 (수행된) 연구의 결과를 대표하지 못할 때.
+  - 누락된 연구 문제
+  - 포본 오류
+
+## 출간 오류 분석 과정
+
+ * 데이터에 대한 검토(forest plot) 
+ * 오류의 존재 유무에 대한 확인(funnel plot 이용)
+  - 비대칭에 대한 시각적 분석
+  - 비대칭에 대한 통계적 분석
+  
+  
+### 데이터에 대한 검토(forest plot) 
+
+<img src="figure/ref1/fig9-1.jpg" style="width: 60%;" /> 
+
+
+### 오류의 존재 유무에 대한 확인(funnel plot 이용)
+
+<img src="figure/ref1/fig9-2.jpg" style="width: 60%;" /> 
+
+<img src="figure/ref1/fig9-3.jpg" style="width: 60%;" /> 
+
+<img src="figure/ref1/fig9-6.jpg" style="width: 60%;" /> 
+
+  
+
+-----------------------------
 
 # 참고자료 2 : 응용데이터분석 1. 메타분석 "meta"
 
@@ -123,6 +349,8 @@ forest(meta.1, comb.fixed=FALSE, leftcols="studlab", rightcol=FALSE)
 
 ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
 
+-----------------------------
+
 # 2. 출간 편향 
 
 
@@ -134,6 +362,7 @@ funnel(meta.1)
 플롯에서 오른쪽 아래 코너가 비어 있다. 이것은 표준오차(standard
 error)가 작은 연구들은 OR이 평균보다 작은 것들만 수집되었음을 뜻한다.
 
+-----------------------------
 
 # 3. 평균의 비교
 
@@ -356,6 +585,8 @@ sort(table(unlist(LastFirst)), dec = TRUE)[1:3] # Tabulate & Sort
 ## Tanne Janice Hopkins        Charatan Fred      Abenhaim Lucien 
 ##                    4                    3                    1
 ```
+
+-----------------------------
 
 # Basic Meta-Analysis in R
 
@@ -845,6 +1076,8 @@ summary(result.md)
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
+-----------------------------
+
 # Visualizing Heterogeneity
 
 ## Forest Plot
@@ -901,6 +1134,8 @@ forest(result.or, order = "prec", transf = exp, refline = 1)
 
 ![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-192.png) 
 
+-----------------------------
+
 # Publication Bias
 
 ## Funnel Plot
@@ -911,6 +1146,7 @@ funnel(result.md)
 
 ![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20.png) 
 
+-----------------------------
 
 # Comparing metafor, rmeta, meta
 

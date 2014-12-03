@@ -180,7 +180,7 @@
 
 * 무선효과모형
 
-<img src="figure/ref1/fig4-1.jpg" style="width: 60%;" /> 
+<img src="figure/ref1/fig4-2.jpg" style="width: 60%;" /> 
 
 
 ## 2. 고정효과모형과 무선효과모형의 차이
